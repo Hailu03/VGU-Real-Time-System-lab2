@@ -109,6 +109,23 @@ void display7SEG(int num) {
     }
 }
 
+void display(int index) {
+	index = index % 2;
+	switch(index) {
+		case 0:
+			display7SEG(1);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // Toggle PA6 when displaying "1"
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET); // Ensure PA7 is off
+			break;
+		case 1:
+			display7SEG(2);
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET); // Toggle PA6 when displaying "1"
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET); // Ensure PA7 is off
+			break;
+		default:
+			break;
+	}
+}
 
 int main(void)
 {
@@ -143,23 +160,14 @@ int main(void)
 
   /* USER CODE BEGIN WHILE */
   setTimer(0,50);
-  setTimer(1,100);
+  int index = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
 	  if(isTimerExpired(0)) {
 	      setTimer(0,50);
-	      display7SEG(1);
-	      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET); // Toggle PA6 when displaying "1"
-	      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET); // Ensure PA7 is off
-	   }
-
-	  if(isTimerExpired(1)) {
-		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-	      setTimer(1,100);
-	      display7SEG(2);
-	      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET); // Ensure PA6 is off
-	      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET); // Ensure PA6 is off
+	      display(index++);
 	   }
     /* USER CODE BEGIN 3 */
   }

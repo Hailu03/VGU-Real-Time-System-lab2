@@ -1,0 +1,86 @@
+18:09:03 **** Incremental Build of configuration Debug for project exercise1 ****
+make -j16 all 
+arm-none-eabi-size   exercise1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7428	     20	   1724	   9172	   23d4	exercise1.elf
+Finished building: default.size.stdout
+ 
+19:45:40 **** Build of configuration Debug for project exercise2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'display':
+../Core/Src/main.c:114:2: warning: implicit declaration of function 'swith' [-Wimplicit-function-declaration]
+  114 |  swith(index) {
+      |  ^~~~~
+../Core/Src/main.c:114:14: error: expected ';' before '{' token
+  114 |  swith(index) {
+      |              ^~
+      |              ;
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:174:42: error: 'LED_RED_PIN' undeclared (first use in this function); did you mean 'LED_RED_Pin'?
+  174 |    HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_PIN);
+      |                                          ^~~~~~~~~~~
+      |                                          LED_RED_Pin
+../Core/Src/main.c:174:42: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:175:43: error: 'LED_RED2_PIN' undeclared (first use in this function); did you mean 'LED_RED2_Pin'?
+  175 |    HAL_GPIO_TogglePin(LED_RED2_GPIO_Port, LED_RED2_PIN);
+      |                                           ^~~~~~~~~~~~
+      |                                           LED_RED2_Pin
+../Core/Src/main.c:180:8: warning: implicit declaration of function 'diplay'; did you mean 'display'? [-Wimplicit-function-declaration]
+  180 |        diplay(index++);
+      |        ^~~~~~
+      |        display
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+19:49:53 **** Incremental Build of configuration Debug for project exercise2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'display':
+../Core/Src/main.c:114:2: warning: implicit declaration of function 'swith' [-Wimplicit-function-declaration]
+  114 |  swith(index) {
+      |  ^~~~~
+../Core/Src/main.c:114:14: error: expected ';' before '{' token
+  114 |  swith(index) {
+      |              ^~
+      |              ;
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:175:43: error: 'LED_RED2_PIN' undeclared (first use in this function); did you mean 'LED_RED2_Pin'?
+  175 |    HAL_GPIO_TogglePin(LED_RED2_GPIO_Port, LED_RED2_PIN);
+      |                                           ^~~~~~~~~~~~
+      |                                           LED_RED2_Pin
+../Core/Src/main.c:175:43: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+19:50:12 **** Incremental Build of configuration Debug for project exercise2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'display':
+../Core/Src/main.c:114:2: warning: implicit declaration of function 'swith' [-Wimplicit-function-declaration]
+  114 |  swith(index) {
+      |  ^~~~~
+../Core/Src/main.c:114:14: error: expected ';' before '{' token
+  114 |  swith(index) {
+      |              ^~
+      |              ;
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+19:51:24 **** Incremental Build of configuration Debug for project exercise2 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "exercise2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Users\haib1\OneDrive\documents\university\year3\2nd_semester\Real_Time_System_DrLeTrongNhan\lab2\exercise2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: exercise2.elf
+ 
+arm-none-eabi-size   exercise2.elf 
+arm-none-eabi-objdump -h -S  exercise2.elf  > "exercise2.list"
+arm-none-eabi-objcopy  -O ihex  exercise2.elf  "exercise2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7624	     20	   1724	   9368	   2498	exercise2.elf
+arm-none-eabi-objcopy  -O binary  exercise2.elf  "exercise2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: exercise2.list
+Finished building: exercise2.bin
+Finished building: exercise2.hex
+ 
+ 
+ 
