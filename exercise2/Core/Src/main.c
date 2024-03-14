@@ -109,26 +109,29 @@ void display7SEG(int num) {
     }
 }
 
-void display(int index) {
-	index = index % 4;
+const int MAX_LED_MATRIX = 4;
+int index_led = 0;
+int led_buffer[4] = {1,2,3,4};
+
+void update7SEG(int index) {
 	switch(index) {
 		case 0:
-			display7SEG(1);
+			display7SEG(led_buffer[0]);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9, GPIO_PIN_SET);
 			break;
 		case 1:
-			display7SEG(2);
+			display7SEG(led_buffer[1]);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6 | GPIO_PIN_8 | GPIO_PIN_9, GPIO_PIN_SET);
 			break;
 		case 2:
-			display7SEG(3);
+			display7SEG(led_buffer[2]);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_9, GPIO_PIN_SET);
 			break;
 		case 3:
-			display7SEG(0);
+			display7SEG(led_buffer[3]);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8, GPIO_PIN_SET);
 			break;
@@ -181,10 +184,13 @@ int main(void)
 			HAL_GPIO_TogglePin(LED_RED2_GPIO_Port, LED_RED2_Pin);
 		 }
 
-		 if(isTimerExpired(1)) {
-		     setTimer(1,50);
-		     display(index++);
-		 }
+		if(isTimerExpired(1)) {
+		    setTimer(1,50);
+		    update7SEG(index++);
+		}
+				 if(index > 3) {
+					 index = 0;
+				 }
   }
   /* USER CODE END 3 */
 }
@@ -311,7 +317,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	timerRun();
 }

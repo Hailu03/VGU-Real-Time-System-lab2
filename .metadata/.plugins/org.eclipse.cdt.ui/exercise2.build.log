@@ -1,23 +1,31 @@
-19:51:24 **** Incremental Build of configuration Debug for project exercise2 ****
+14:33:00 **** Incremental Build of configuration Debug for project exercise2 ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "exercise2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Users\haib1\OneDrive\documents\university\year3\2nd_semester\Real_Time_System_DrLeTrongNhan\lab2\exercise2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="exercise2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: exercise2.elf
- 
-arm-none-eabi-size   exercise2.elf 
-arm-none-eabi-objdump -h -S  exercise2.elf  > "exercise2.list"
-arm-none-eabi-objcopy  -O ihex  exercise2.elf  "exercise2.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7624	     20	   1724	   9368	   2498	exercise2.elf
-arm-none-eabi-objcopy  -O binary  exercise2.elf  "exercise2.bin"
-Finished building: default.size.stdout
- 
-Finished building: exercise2.list
-Finished building: exercise2.bin
-Finished building: exercise2.hex
- 
- 
- 
+../Core/Src/main.c: In function 'updateLEDMatrix':
+../Core/Src/main.c:149:29: error: 'GPIO_ROW0' undeclared (first use in this function)
+  149 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW0, (matrix_buffer[0] >> 0) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:149:29: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:150:29: error: 'GPIO_ROW1' undeclared (first use in this function)
+  150 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW1, (matrix_buffer[0] >> 1) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:151:29: error: 'GPIO_ROW2' undeclared (first use in this function)
+  151 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW2, (matrix_buffer[0] >> 2) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:152:29: error: 'GPIO_ROW3' undeclared (first use in this function)
+  152 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW3, (matrix_buffer[0] >> 3) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:153:29: error: 'GPIO_ROW4' undeclared (first use in this function)
+  153 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW4, (matrix_buffer[0] >> 4) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:154:29: error: 'GPIO_ROW5' undeclared (first use in this function)
+  154 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW5, (matrix_buffer[0] >> 5) & 0x01);
+      |                             ^~~~~~~~~
+../Core/Src/main.c:155:29: error: 'GPIO_ROW6' undeclared (first use in this function)
+  155 |    HAL_GPIO_WritePin(GPIOA, GPIO_ROW6, (matrix_buffer[0] >> 6) & 0x01);
+      |                             ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
 
-19:51:27 Build Finished. 0 errors, 0 warnings. (took 3s.267ms)
+14:33:00 Build Failed. 8 errors, 0 warnings. (took 746ms)
 
